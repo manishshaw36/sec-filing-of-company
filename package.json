@@ -1,0 +1,22 @@
+{
+  "name": "sec-filing-of-company",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && node server.js\" \"cd frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manishshaw36/sec-filing-of-company.git"
+  },
+  "author": "Manish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manishshaw36/sec-filing-of-company/issues"
+  },
+  "homepage": "https://github.com/manishshaw36/sec-filing-of-company#readme",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

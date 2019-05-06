@@ -1,21 +1,13 @@
 // frontend/App.js
-import React, { Component } from "react";
+import React from "react";
 import HOC from './components/hoc';
 
-class App extends Component {
-  state = {
-    data: []
-  }
+const App = () => (
 
   // here is our UI
   // it is easy to understand their functions when you 
-  // see them render into our screen
-  render() {
-    const { data } = this.state;
-    return (
-      <HOC data={ data }/>
-    );
-  }
-}
+  <HOC />
+    
+)
 
 export default App;

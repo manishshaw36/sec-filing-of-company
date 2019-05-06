@@ -1,20 +1,26 @@
-import React, { Component } from "react";
-import HomeComponent from '../layout/home';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomeComponent from '../layout/firstScreen/home';
 import HeaderComponent from '../layout/header';
+import ScreenTwo from '../layout/secondScreen';
 
-class HOC extends Component {
+const HOC = () => (
 
   // here is our UI
-  // it is easy to understand their functions when you 
-  // see them render into our screen
-  render() {
-    return (
-      <div className='container'>
-          <HeaderComponent />
-          <HomeComponent />
-      </div>
-    );
-  }
-}
+  // it is easy to understand their functions
+ 
+  <div className='container'>
+    <HeaderComponent />
+    <Router>
+      <Switch>
+        <Route path={'/'} component={HomeComponent} exact/>
+        <Route path={'/result/:tickerKey'} component={ ScreenTwo } exact />
+        <Route path={'/error'} component={() => (<p>Something wentt wrong</p>)} />
+        <Route component={() => (<p> Path not found </p>)} />
+      </Switch>
+    </Router>
+  </div>   
+
+)
 
 export default HOC;

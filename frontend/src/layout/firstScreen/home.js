@@ -28,23 +28,35 @@ class HomeComponent extends Component {
 
     handleSelected = (selected) => {
         let tickerOpt = [];
-        tickerOpt.push({key: selected.cik, value: selected.ticker, text: selected.ticker, cik: selected.cik})
+        tickerOpt.push({key: selected.cik, value: selected.ticker, text: selected.ticker, cik: selected.cik, name: selected.value})
         this.setState({ tickerOption: tickerOpt });
     };
 
-    handleTicker = (ticker) => this.setState({ cik: ticker.cik });
-
+    handleTicker = (ticker) => this.setState({ ticker: ticker }, console.log(ticker));
+    
     render() {
-        const { companyOption, tickerOption } = this.state;
+        const { companyOption, tickerOption, ticker } = this.state;
         return (
             <div className="my-5 row">    
                 <div className="my-3 col-lg-6">
-                    <Dropdown dataPlaceHolder='Select the company name' companyOption={companyOption} getSelectedData={this.handleSelected}/>
+                    <Dropdown 
+                        dataPlaceHolder='Select the company name' 
+                        companyOption={companyOption} 
+                        getSelectedData={this.handleSelected}
+                    />
                 </div>
                 <div className="my-3 col-lg-6">
-                    <Dropdown dataPlaceHolder='Enter ticker symbol' companyOption={tickerOption} getSelectedData={this.handleTicker}/>
+                    <Dropdown 
+                        dataPlaceHolder='Enter ticker symbol' 
+                        companyOption={tickerOption} 
+                        getSelectedData={this.handleTicker}
+                    />
                 </div>
-                <input type="button" className="my-5 mx-auto btn btn-secondary form-control w-50 text-center" value="Get SEC with Quarterly Reports"/>
+                <a 
+                    href={ticker ? `/result/${ticker.key}`: '/'} 
+                    className="my-5 mx-auto btn btn-secondary form-control w-50 text-center">
+                    Get SEC with Quarterly Reports 
+                </a>
             </div>      
         )
     }
