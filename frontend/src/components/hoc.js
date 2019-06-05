@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomeComponent from '../layout/firstScreen/home';
-import HeaderComponent from '../layout/header';
-import ScreenTwo from '../layout/secondScreen';
+import HomeComponent from '../container/firstScreen/index';
+import HeaderComponent from './layout/header';
+import ScreenTwo from '../container/secondScreen/index';
 
 const HOC = () => (
 
